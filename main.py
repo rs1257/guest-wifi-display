@@ -14,15 +14,18 @@ try:
     epd.Clear(0xFF)
 
     # Drawing on the image
-    font24 = ImageFont.truetype('RobotoMono-Regular.ttf', 24)
-  
-    logging.info("1.Drawing on the image...")
+    font22 = ImageFont.truetype('RobotoMono-Regular.ttf', 22)
+
     image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
     draw = ImageDraw.Draw(image)
-    draw.text((0, 0), "Scan to join:", font = font24, fill = 0)
-    draw.text((0, 24), "Ryan's Mesh Guest", font = font24, fill = 0)
+    draw.text((0, 0), "Tap or scan to join:", font = font22, fill = 0)
+    draw.text((0, 24), "Ryan's Mesh Guest", font = font22, fill = 0)
     bmp = Image.open('wifi.bmp')
-    image.paste(bmp, (int(epd.width/2 + 20), 50)) 
+    image.paste(bmp, (int(epd.width/2 + 60), 50))
+
+    qr = Image.open('qr.bmp')
+    image.paste(qr, (40, 50)) 
+
     epd.display(epd.getbuffer(image))
     epd.sleep()
         
