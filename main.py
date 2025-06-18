@@ -18,8 +18,8 @@ try:
 
     image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
     draw = ImageDraw.Draw(image)
-    draw.text((0, 0), "Tap or scan to join:", font = font22, fill = 0)
-    draw.text((0, 24), "Ryan's Mesh Guest", font = font22, fill = 0)
+    draw.text((0, 0), "Tap or scan to join", font = font22, fill = 0)
+    draw.text((0, 26), "Ryan's Mesh Guest", font = font22, fill = 0)
     bmp = Image.open('wifi.bmp')
     image.paste(bmp, (int(epd.width/2 + 60), 50))
 
